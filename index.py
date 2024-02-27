@@ -22,9 +22,8 @@ message = MIMEMultipart()
 
 subject = "NEWS"
 text_content = "Hello world, this is deboneil07 from antiNET"
-message["Subject"] = subject 
-message.attach(MIMEText(text_content, 'plain'))
-
+message["Subject"] = subject
+message.attach(MIMEText(text_content))
 
 
 my_server.sendmail(
