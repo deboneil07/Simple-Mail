@@ -96,11 +96,10 @@ btn_frame.columnconfigure(0, weight=1)
 submit.pack(side=tk.RIGHT, ipadx=20, padx=5)
 clr.pack(side=tk.RIGHT, padx=5)
 
+def event_handler(event):
+    print(event.char)
 
- 
-
-
-
+window.bind("<Key>", event_handler)
 
 
 
