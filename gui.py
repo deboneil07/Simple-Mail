@@ -24,7 +24,8 @@ button = tk.Button(
     height=2,
     bg="black",
     fg="blue",
-    command=get_entry_value
+    command=get_entry_value,
+    relief=tk.RAISED
 )
 
 entry = tk.Entry(
@@ -33,10 +34,26 @@ entry = tk.Entry(
     width=20,
 )
 
-label.pack()
+for i in range(4, 7):
+    window.columnconfigure(i, weight=1, minsize=75)
+    window.rowconfigure(i, weight=1, minsize=50)
+    for j in range(3):
+        frame = tk.Frame(
+            master=window,
+            relief=tk.RAISED,
+            borderwidth=1
+        )
+        frame.grid(row=i, column=j)
+        lb1 = tk.Label(master=frame, text=f"Row: {i}\n Column: {j}")
+        lb1.grid(row=0, column=0)
+        
 
-entry.pack()
-button.pack()
+
+
+label.grid(row=1, column=0, columnspan=1)
+entry.grid(row=2, column=0, columnspan=1, pady=10)
+button.grid(row=3, column=0, columnspan=1, pady=10)
+
 
 # Start the tkinter event loop
 window.mainloop()
